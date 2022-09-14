@@ -10,6 +10,7 @@ class MailItem {
   });
 }
 
+// ignore: non_constant_identifier_names
 double MySize = 0.0;
 double kPadding = MySize * 0.025;
 
