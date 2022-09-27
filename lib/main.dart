@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: GmailHome(
+        title: '',
+      ),
     );
   }
 }
@@ -60,7 +62,7 @@ class _GmailHomeState extends State<GmailHome> {
     super.initState();
 
     var padding = EdgeInsets.symmetric(horizontal: 12, vertical: 5);
-    double gap = 30;
+    double gap = 5;
 
     tabs.add(GButton(
       gap: gap,
@@ -83,7 +85,7 @@ class _GmailHomeState extends State<GmailHome> {
       backgroundColor: Colors.blue[50],
       iconSize: 24,
       padding: padding,
-      icon: Icons.search,
+      icon: Icons.fingerprint,
       // textStyle: t.textStyle,
       text: 'Finger',
     ));
@@ -113,17 +115,21 @@ class _GmailHomeState extends State<GmailHome> {
         // body: Container(color: Colors.red,),
         bottomNavigationBar: SafeArea(
           child: Container(
-            decoration: BoxDecoration(color: Colors.white, boxShadow: [
-              BoxShadow(
-                  spreadRadius: -10,
-                  blurRadius: 60,
-                  color: Colors.black.withOpacity(.20),
-                  offset: Offset(0, 15))
-            ]),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.90),
+              boxShadow: [
+                BoxShadow(
+                    spreadRadius: -10,
+                    blurRadius: 60,
+                    color: Colors.black.withOpacity(.20),
+                    offset: Offset(0, 15))
+              ],
+            ),
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
               child: GNav(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   tabs: tabs,
                   selectedIndex: selectedIndex,
                   onTabChange: (index) {
